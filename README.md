@@ -1,207 +1,205 @@
-# SQL Retail Sales Analytics
+# 🛒 Retail Sales Analytics using SQL
 
-## Project Overview
+## 📌 Project Overview
 
-This project analyzes retail sales data from the Superstore dataset using SQL. The objective is to uncover actionable business insights related to sales performance, customer behavior, product profitability, and regional trends.
+This project analyzes retail sales transactions from the Superstore dataset to uncover insights into customer behavior, product performance, profitability, and regional sales trends.
 
-The project demonstrates SQL skills commonly required for Data Analyst and Business Analyst roles, including aggregations, joins, window functions, Common Table Expressions (CTEs), ranking functions, and business KPI analysis.
-
----
-
-## Business Problem
-
-Retail organizations generate thousands of transactions daily. Decision-makers need visibility into:
-
-* Which customers generate the most revenue
-* Which products contribute the highest sales
-* Which regions perform best
-* Which products cause losses
-* How profit and sales vary across categories
-
-This project answers these business questions using SQL.
+Using MySQL, I performed end-to-end business analysis to identify revenue drivers, high-value customers, profitable product categories, and loss-making products that impact business growth.
 
 ---
 
-## Dataset
+## 🎯 Business Problem
 
-Dataset: Superstore Sales Dataset
+Retail businesses generate thousands of transactions, making it difficult to identify:
 
-Records: Approximately 9,994 transactions
+- Which customers contribute the most revenue
+- Which products drive profitability
+- Which regions perform best
+- Which products generate losses
+- How sales and profit vary across categories
 
-Features include:
-
-* Orders
-* Customers
-* Products
-* Sales
-* Profit
-* Quantity
-* Discounts
-* Categories
-* Regions
+This project provides data-driven answers to support business decision-making.
 
 ---
 
-## Tools & Technologies
+## 🛠 Tools & Technologies
 
-* SQL
-* MySQL
-* Python
-* Pandas
-* SQLAlchemy
-* GitHub
-
----
-
-## Database Schema
-
-Table Name:
-
-superstore
-
-Key Columns:
-
-* Order_ID
-* Order_Date
-* Customer_ID
-* Customer_Name
-* Segment
-* Region
-* Category
-* Sub_Category
-* Product_Name
-* Sales
-* Quantity
-* Discount
-* Profit
+- SQL (MySQL)
+- Python
+- Pandas
+- SQLAlchemy
+- GitHub
 
 ---
 
-## Business Questions Solved
+## 📊 Dataset
+
+**Dataset:** Superstore Sales Dataset
+
+**Records:** ~9,994 Transactions
+
+### Key Fields
+
+- Customer Information
+- Product Information
+- Order Details
+- Sales
+- Profit
+- Quantity
+- Discount
+- Region
+- Category
+
+---
+
+# 📈 Dashboard & Query Outputs
+
+## Top Customers by Revenue
+
+![Top Customers](outputs/screenshots/top_customers.png)
+
+### Business Insight
+
+A small group of customers contributes a significant portion of total revenue. These customers should be prioritized for retention and loyalty programs.
+
+---
+
+## Category Performance Analysis
+
+![Category Analysis](outputs/screenshots/category_performance.png)
+
+### Business Insight
+
+Analyzed revenue and profitability across categories to identify high-performing business segments.
+
+---
+
+## Regional Sales Analysis
+
+![Regional Analysis](outputs/screenshots/sales_by_region.png)
+
+### Business Insight
+
+Compared sales performance across regions to identify strong and weak markets.
+
+---
+
+## Loss-Making Products
+
+![Loss Products](outputs/screenshots/loss_making_products.png)
+
+### Business Insight
+
+Identified products generating negative profit despite sales activity, highlighting opportunities for pricing and inventory optimization.
+
+---
+
+# 📋 Business Questions Solved
 
 ### Sales Analysis
 
-* What is the total revenue?
-* What is the average order value?
-* How many orders were placed?
-* What are the monthly sales trends?
+- Total Revenue
+- Total Orders
+- Average Order Value
+- Monthly Sales Trends
 
 ### Customer Analysis
 
-* Who are the top customers?
-* What is the customer lifetime value?
-* Which customer segments generate the most revenue?
+- Top Customers
+- Customer Lifetime Value (CLV)
+- Segment Performance
 
 ### Product Analysis
 
-* Which products generate the highest sales?
-* Which products sell the most units?
-* Which categories are most profitable?
+- Top Products
+- Category Performance
+- Sub-Category Analysis
 
 ### Regional Analysis
 
-* Which regions generate the highest revenue?
-* Which states contribute the most sales?
-* Which regions have the highest profit?
+- Regional Revenue Comparison
+- State-Level Sales Analysis
+- Regional Profitability
 
-### Profit Analysis
+### Profitability Analysis
 
-* What is the overall profit?
-* What is the profit margin?
-* Which products generate losses?
-
-### Advanced SQL Analysis
-
-* Customer ranking using window functions
-* Running revenue calculations
-* Top products within each category
-* Top customers within each segment
+- Overall Profit
+- Profit Margin
+- Loss-Making Products
 
 ---
 
-## SQL Concepts Demonstrated
+# 🧠 SQL Skills Demonstrated
 
 ### Aggregations
 
-* SUM()
-* COUNT()
-* AVG()
-* ROUND()
+```sql
+SUM()
+COUNT()
+AVG()
+ROUND()
+```
 
-### Grouping
+### Grouping & Filtering
 
-* GROUP BY
-* HAVING
-
-### Sorting & Filtering
-
-* ORDER BY
-* LIMIT
+```sql
+GROUP BY
+HAVING
+ORDER BY
+LIMIT
+```
 
 ### Window Functions
 
-* RANK()
-* OVER()
+```sql
+RANK()
+OVER()
+```
 
-### Common Table Expressions
+### Common Table Expressions (CTEs)
 
-* WITH Clause (CTE)
+```sql
+WITH
+```
 
-### Date Analysis
+### Date Functions
 
-* YEAR()
-* MONTH()
-
----
-
-## Key Insights
-
-* Identified top revenue-generating customers.
-* Analyzed high-performing product categories.
-* Detected loss-making products affecting profitability.
-* Compared regional sales and profit performance.
-* Ranked customers based on lifetime value.
-* Generated actionable business recommendations from sales data.
+```sql
+YEAR()
+MONTH()
+```
 
 ---
 
-## Project Structure
+# 📂 Project Structure
 
+```text
 sql-retail-sales-analytics/
-
+│
 ├── data/
-
 │   └── superstore.csv
-
+│
 ├── sql/
-
 │   ├── 01_create_tables.sql
-
 │   ├── 02_sales_analysis.sql
-
 │   ├── 03_customer_analysis.sql
-
 │   ├── 04_product_analysis.sql
-
 │   ├── 05_regional_analysis.sql
-
 │   ├── 06_profit_analysis.sql
-
 │   └── 07_advanced_queries.sql
-
+│
 ├── outputs/
-
 │   ├── screenshots/
-
 │   └── results/
-
+│
 ├── import_superstore.py
-
+│
 └── README.md
+```
 
 ---
 
-## Sample SQL Query
+# 🔍 Sample SQL Query
 
 ```sql
 SELECT
@@ -215,36 +213,46 @@ LIMIT 10;
 
 ---
 
-## Results
+# 💡 Key Outcomes
 
-The analysis produced:
+✔ Identified top revenue-generating customers
 
-* Revenue performance reports
-* Customer lifetime value rankings
-* Product profitability analysis
-* Regional sales dashboards
-* Customer segmentation insights
+✔ Analyzed product-level profitability
 
----
+✔ Compared regional sales performance
 
-## Future Improvements
+✔ Detected loss-making products
 
-* Build Power BI Dashboard
-* Create Customer Segmentation Model
-* Add RFM Analysis
-* Develop Sales Forecasting Model
-* Deploy Interactive Dashboard
+✔ Applied advanced SQL techniques including Window Functions and CTEs
+
+✔ Generated actionable business insights from retail transaction data
 
 ---
 
-## Author
+# 🚀 Future Enhancements
 
-Jagadeeswari S
+- Interactive Power BI Dashboard
+- RFM Customer Segmentation
+- Customer Churn Analysis
+- Sales Forecasting
+- Executive KPI Dashboard
+
+---
+
+# 👩‍💻 Author
+
+**Jagadeeswari S**
 
 Aspiring Data Analyst
 
-Skills:
-SQL | Python | Power BI | Machine Learning | Data Visualization
+### Skills
 
-GitHub:
+SQL • Python • Power BI • Machine Learning • Data Visualization
+
+### GitHub
+
 https://github.com/jagadeeswari-19
+
+### LinkedIn
+
+(Add your LinkedIn profile link here)
