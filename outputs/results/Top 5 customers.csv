@@ -1,0 +1,16 @@
+Segment,Customer_Name,Revenue,rnk
+Consumer,"Raymond Buch",15117.339,1
+Consumer,"Adrian Barton",14473.570999999998,2
+Consumer,"Ken Lonsdale",14175.229,3
+Consumer,"Sanjit Chand",14142.333999999999,4
+Consumer,"Hunter Lopez",12873.297999999999,5
+Corporate,"Tamara Chand",19052.217999999997,1
+Corporate,"Todd Sumrall",11891.751,2
+Corporate,"Bill Shonely",10501.652999999998,3
+Corporate,"Edward Hooks",10310.880000000001,4
+Corporate,"Grant Thornton",9351.211999999998,5
+"Home Office","Sean Miller",25043.05,1
+"Home Office","Tom Ashbrook",14595.62,2
+"Home Office","Maria Etezadi",10663.727999999997,3
+"Home Office","Karen Ferguson",10604.266,4
+"Home Office","Daniel Raglin",8350.868,5
