@@ -255,4 +255,5 @@ https://github.com/jagadeeswari-19
 
 ### LinkedIn
 
-(Add your LinkedIn profile link here)
+https://www.linkedin.com/in/jagadeeswari-s-jagadeeswari/?skipRedirect=true
+
