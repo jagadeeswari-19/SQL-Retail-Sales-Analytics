@@ -298,6 +298,4 @@ GitHub: [jagadeeswari-19](https://github.com/jagadeeswari-19)
 
 ---
 
-## 📄 License
 
-This project is available under the MIT License.
