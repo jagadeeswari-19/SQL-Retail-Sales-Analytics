@@ -1,55 +1,44 @@
-# Retail Sales Analytics — SQL Business Analysis
+# 🛒 Retail Sales Analytics — MySQL
 
-A SQL-focused retail analytics project using the Superstore dataset to analyze sales performance, customer behavior, product profitability, regional performance, and business risk.
+A SQL-based retail sales analytics project using **MySQL** to analyze **9,994 Superstore transactions**, uncover sales and profitability trends, identify high-value customers and products, and detect loss-making products.
 
-The project demonstrates practical MySQL skills including aggregations, joins, CTEs, window functions, conditional logic, filtering, ranking, and profitability analysis.
-
----
-
-## 📊 Project Overview
-
-This project analyzes retail transaction data to answer practical business questions such as:
-
-- Which products and categories generate the most sales?
-- Which products and categories are most profitable?
-- Which customers contribute the most revenue?
-- How concentrated is revenue among top customers?
-- Which products generate losses?
-- Which regions and segments perform better?
-- What business risks can be identified from sales and profitability data?
+The project demonstrates practical SQL skills including **CTEs, subqueries, aggregations, joins, CASE statements, window functions, date analysis, and business-oriented KPI analysis**.
 
 ---
 
-## 🛠️ Tools & Technologies
+## 📌 Project Overview
 
-- **MySQL**
-- **SQL**
-- **Python**
-- **Pandas**
-- **Git & GitHub**
-- **Superstore Dataset**
+This project analyzes **9,994 retail transactions** from the Superstore dataset to answer practical business questions around:
 
-### SQL Concepts Used
+* Sales and profit performance
+* Customer revenue contribution
+* Product profitability
+* Regional performance
+* Category and sub-category performance
+* Monthly sales trends
+* Loss-making products
+* Revenue concentration
+* Top-performing customers and products
 
-- SELECT / WHERE
-- GROUP BY / HAVING
-- ORDER BY
-- Aggregate Functions
-- CASE statements
-- Subqueries
-- Common Table Expressions (CTEs)
-- Window Functions
-- ROW_NUMBER()
-- RANK()
-- Joins
-- Conditional Aggregation
-- Profitability Analysis
-- Customer Segmentation
-- Business KPI Analysis
+The analysis was performed using **MySQL**, with SQL queries organized by analytical topic.
 
 ---
 
-## 📁 Project Structure
+## 🎯 Business Objectives
+
+The project focuses on answering questions such as:
+
+1. Which customers generate the most revenue?
+2. Which products contribute the most sales and profit?
+3. Which products are generating losses?
+4. Which regions and categories perform best?
+5. How do sales and profit change over time?
+6. How concentrated is revenue among the top customers?
+7. Which products require further business attention?
+
+---
+
+## 🗂️ Project Structure
 
 ```text
 retail-sales-analytics/
@@ -57,251 +46,258 @@ retail-sales-analytics/
 ├── data/
 │   └── superstore.csv
 │
+├── sql/
+│   ├── 01_data_exploration.sql
+│   ├── 02_customer_analysis.sql
+│   ├── 03_product_analysis.sql
+│   ├── 04_sales_trends.sql
+│   ├── 05_cte_window_analysis.sql
+│   └── 06_profit_analysis.sql
+│
 ├── outputs/
-│   ├── results/
-│   │   ├── top10_customer_revenue_share.csv
-│   │   ├── loss_making_products.csv
-│   │   └── loss_making_products_detail.csv
-│   │
 │   └── screenshots/
 │       ├── top10_customer_revenue_share.png
-│       ├── loss_making_products.png
-│       └── loss_making_products_detail.png
+│       ├── sales_profit_trend.png
+│       └── loss_making_products.png
 │
-├── sql/
-│   ├── 01_create_table.sql
-│   ├── 02_sales_analysis.sql
-│   ├── 03_customer_analysis.sql
-│   ├── 04_product_analysis.sql
-│   ├── 05_regional_analysis.sql
-│   ├── 06_profit_analysis.sql
-│   ├── 07_advanced_queries.sql
-│   └── 08_customer_product_risk_analysis.sql
-│
-├── import_superstore.py
 └── README.md
-🔎 SQL Analysis
-1. Sales Performance Analysis
+```
 
-Analyzed overall sales performance using SQL aggregations and grouped analysis.
+---
 
-Key areas:
+## 🧰 Tools & Technologies
 
-Total sales
-Sales by category
-Sales by sub-category
-Sales trends
-High-value transactions
-Sales contribution across business dimensions
-2. Customer Analysis
+* **MySQL**
+* SQL
+* MySQL Workbench
+* CTEs
+* Window Functions
+* Subqueries
+* Aggregate Functions
+* Joins
+* CASE Statements
+* Date Functions
+* Git & GitHub
 
-Analyzed customer-level purchasing behavior to identify:
+---
 
-High-value customers
-Customer revenue contribution
-Customer purchase patterns
-Customer profitability
-3. Product Analysis
+## 🔎 SQL Analysis
 
-Analyzed product and sub-category performance using:
+### 1. Customer Analysis
 
-Total sales
-Total profit
-Product-level aggregation
-Product ranking
-Sub-category comparison
-4. Regional Analysis
+Analyzed customer-level sales and revenue contribution to identify high-value customers.
 
-Analyzed sales and profitability across geographic regions.
+Key analysis includes:
 
-Key areas:
+* Total revenue by customer
+* Total profit by customer
+* Top 10 customers by revenue
+* Customer revenue contribution
+* Revenue concentration
 
-Regional sales
-Regional profit
-State-level performance
-Regional contribution
-Identification of strong and weak performing areas
-5. Profitability Analysis
+---
 
-Evaluated profitability at multiple levels:
+### 2. Product Analysis
 
-Product
-Sub-category
-Category
-Customer
-Region
+Analyzed product-level performance to identify products driving sales and profitability.
 
-The analysis identifies areas where high sales do not necessarily translate into high profitability.
+Key analysis includes:
 
-📈 Customer Revenue Concentration
+* Top products by sales
+* Top products by profit
+* Product-level revenue
+* Product-level profitability
+* Loss-making products
 
-A dedicated analysis was added to measure how much of the company's total revenue comes from its highest-value customers.
+---
 
-Using a CTE and ROW_NUMBER() window function, customers were ranked based on total sales.
+### 3. Sales Trend Analysis
 
-Result
+Analyzed sales performance across time to identify trends and changes in business performance.
 
-Top 10 customers contribute 6.7% of total revenue.
+Key analysis includes:
 
-SQL approach:
+* Monthly sales
+* Monthly profit
+* Yearly performance
+* Sales growth
+* Profit trends
 
+---
+
+### 4. Regional & Category Analysis
+
+Analyzed business performance across different regions, categories, and sub-categories.
+
+Key analysis includes:
+
+* Regional sales
+* Regional profit
+* Category performance
+* Sub-category performance
+* Profitability comparison
+
+---
+
+## 🧠 CTE & Window Function Analysis
+
+The project includes advanced SQL techniques such as **Common Table Expressions (CTEs)** and **window functions**.
+
+Example:
+
+```sql
 WITH customer_revenue AS (
     SELECT
         Customer_Name,
-        SUM(Sales) AS revenue
-    FROM superstore
+        SUM(Sales) AS total_revenue
+    FROM retail_sales
     GROUP BY Customer_Name
 ),
-
 ranked_customers AS (
     SELECT
         Customer_Name,
-        revenue,
-        ROW_NUMBER() OVER (ORDER BY revenue DESC) AS rn
+        total_revenue,
+        RANK() OVER (ORDER BY total_revenue DESC) AS revenue_rank
     FROM customer_revenue
 )
-
 SELECT
-    ROUND(
-        SUM(
-            CASE
-                WHEN rn <= 10 THEN revenue
-                ELSE 0
-            END
-        )
-        / SUM(revenue) * 100,
-        1
-    ) AS top10_revenue_share_pct
-FROM ranked_customers;
-Business Interpretation
+    Customer_Name,
+    total_revenue,
+    revenue_rank
+FROM ranked_customers
+WHERE revenue_rank <= 10
+ORDER BY revenue_rank;
+```
 
-The analysis provides a measure of customer revenue concentration and can be used to understand how dependent overall revenue is on the highest-value customers.
+This query calculates customer-level revenue and ranks customers based on total revenue.
 
-⚠️ Loss-Making Product Analysis
+---
 
-Products were grouped by product name and their total profit was calculated across all transactions.
+## 📉 Profitability Analysis
 
-Products with:
+One of the key findings from the analysis was the identification of products generating negative total profit.
 
-Total Profit < 0
+| Metric               |      Result |
+| -------------------- | ----------: |
+| Total Transactions   |       9,994 |
+| Loss-Making Products |         301 |
+| Aggregate Loss       | -$77,068.38 |
 
-were classified as loss-making products.
+The analysis identified **301 products with negative total profit**, generating a combined loss of **$77,068.38**.
 
-Results
-Metric	Result
-Loss-making products	N
-Aggregate loss	$Y
+This provides a useful starting point for investigating pricing, discounting, product costs, and other profitability drivers.
 
-Replace N and $Y above with the exact values returned by MySQL.
+---
 
-The analysis also produces a detailed list of loss-making products containing:
+## 📊 Analysis Screenshots
 
-Product name
-Total sales
-Total profit
+### Top 10 Customer Revenue
 
-This helps identify products that generate sales but result in an overall negative profit contribution.
+![Top 10 Customer Revenue](outputs/screenshots/top10_customer_revenue_share.png)
 
-📊 Key Business Questions Answered
-Business Question	SQL Analysis
-Which products generate the most sales?	Product Analysis
-Which products are most profitable?	Profitability Analysis
-Which customers generate the most revenue?	Customer Analysis
-How concentrated is revenue among top customers?	Top 10 Customer Revenue Share
-Which products are loss-making?	Loss-Making Product Analysis
-Which regions perform better?	Regional Analysis
-Where does high sales not translate into high profit?	Profitability Analysis
-📂 Output Files
+### Sales & Profit Trend
 
-The project contains exported analysis results in the outputs/results/ directory.
+![Sales and Profit Trend](outputs/screenshots/sales_profit_trend.png)
 
-Customer Revenue Concentration
-top10_customer_revenue_share.csv
+### Loss-Making Products
 
-Contains the calculated revenue contribution of the top 10 customers.
+![Loss-Making Products](outputs/screenshots/loss_making_products.png)
 
-Loss-Making Products
-loss_making_products.csv
+---
 
-Contains the count of loss-making products and their aggregate loss.
+## 💡 Key Business Insights
 
-Loss-Making Product Details
-loss_making_products_detail.csv
+The analysis focuses on several business-oriented insights:
 
-Contains product-level sales and profit information for products with negative aggregate profit.
+* Identifying high-value customers based on revenue contribution.
+* Measuring revenue concentration among top customers.
+* Identifying products generating negative total profit.
+* Comparing sales and profitability across regions.
+* Evaluating category and sub-category performance.
+* Tracking monthly sales and profit trends.
+* Using SQL ranking techniques to prioritize high-performing customers and products.
 
-🖼️ Analysis Screenshots
+---
 
-Screenshots of the MySQL analysis results are available in:
+## ▶️ How to Run
 
-outputs/screenshots/
+### 1. Clone the repository
 
-Including:
+```bash
+git clone https://github.com/jagadeeswari-19/retail-sales-analytics.git
+```
 
-Top 10 customer revenue share
-Loss-making product summary
-Loss-making product details
-💡 Key Insights
-Customer Revenue Concentration
+### 2. Open MySQL Workbench
 
-The top 10 customers account for 6.7% of total revenue, providing a measurable view of revenue concentration across the customer base.
+Create a database for the project:
 
-Product Profitability
+```sql
+CREATE DATABASE retail_sales;
+USE retail_sales;
+```
 
-The loss-making product analysis identifies products whose cumulative profit is negative, allowing the business to investigate pricing, discounting, product costs, or other profitability drivers.
+### 3. Load the dataset
 
-🚀 How to Run the Project
-1. Clone the repository
-git clone https://github.com/jagadeeswari-19/SQL-Retail-Sales-Analytics.git
-2. Open MySQL Workbench
+Import the Superstore dataset into MySQL and create the required table.
 
-Create or select the database used for the project.
+### 4. Run the SQL scripts
 
-3. Create the Superstore table
+Execute the SQL files in the `sql/` directory according to the analysis you want to perform.
 
-Run:
+For example:
 
-sql/01_create_table.sql
-4. Import the dataset
-
-Import:
-
-data/superstore.csv
-
-into the superstore table.
-
-5. Run the SQL analyses
-
-Execute the SQL files in order:
-
-01_create_table.sql
-02_sales_analysis.sql
-03_customer_analysis.sql
-04_product_analysis.sql
-05_regional_analysis.sql
+```text
+01_data_exploration.sql
+02_customer_analysis.sql
+03_product_analysis.sql
+04_sales_trends.sql
+05_cte_window_analysis.sql
 06_profit_analysis.sql
-07_advanced_queries.sql
-08_customer_product_risk_analysis.sql
-📌 Skills Demonstrated
+```
 
-This project demonstrates practical ability in:
+---
 
-SQL data analysis
-MySQL
-Data aggregation
-CTEs
-Window functions
-Customer analysis
-Product profitability analysis
-Revenue concentration analysis
-Business KPI analysis
-Data-driven business problem solving
-Git and GitHub
-👩‍💻 Author
+## 📁 Dataset
 
-Jagadeeswari S
+The project uses the **Superstore retail sales dataset**, containing transaction-level information such as:
+
+* Order details
+* Customer information
+* Product information
+* Sales
+* Quantity
+* Discount
+* Profit
+* Region
+* Category
+* Sub-category
+* Order dates
+
+---
+
+## 📌 Skills Demonstrated
+
+**SQL:**
+Joins • CTEs • Window Functions • Subqueries • Aggregations • CASE • Date Functions • Ranking • Filtering
+
+**Data Analysis:**
+Customer Analysis • Product Analysis • Sales Analysis • Profitability Analysis • Trend Analysis • Revenue Concentration
+
+**Business Analytics:**
+KPI Analysis • Performance Analysis • Loss Identification • Revenue Analysis • Business Insights
+
+---
+
+## 👩‍💻 Author
+
+**Jagadeeswari S.**
 
 B.Tech — Artificial Intelligence & Data Science
 
-GitHub:
-https://github.com/jagadeeswari-19
+GitHub: [jagadeeswari-19](https://github.com/jagadeeswari-19)
+
+---
+
+## 📄 License
+
+This project is available under the MIT License.
